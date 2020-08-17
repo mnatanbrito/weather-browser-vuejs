@@ -1,24 +1,28 @@
-# weather-browser-vuejs
+# Sample Vuejs Challenge 😋
 
-## Project setup
+### What?
+
+This is a sample [Vuejs](https://vuejs.org/) application in which a user can search city weather information by its name.
+
+The weather theme was inspired by [frontend-challenges](https://github.com/felipefialho/frontend-challenges).
+
+
+### Why?
+
+This is intended to serve as a quick display of my skills to recruiters.
+
+### How?
+
+This project uses [Open Weather API](https://openweathermap.org/).
+
+In order to run the project, just add a **REACT_APP_OPEN_WEATHER_API_KEY** environment variable with your api key to the project and run:
+
 ```
-yarn install
+yarn start
 ```
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+Check the [LIVE](https://weather-browser-vuejs.vercel.app/) version 😎;
 
-### Compiles and minifies for production
-```
-yarn build
-```
+### P.S
 
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+This app **BY NO MEANS** should be taken as a final solution.
