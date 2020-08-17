@@ -122,6 +122,11 @@ const cityModule = {
       }
     },
   },
+  getters: {
+    hasLimitError: function(state) {
+      return state.searchErrorStatus && state.searchErrorStatus === 429;
+    },
+  },
 };
 
 export default cityModule;

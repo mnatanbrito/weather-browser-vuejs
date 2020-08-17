@@ -1,18 +1,11 @@
 <template>
-  <div class="weather-app">
-      <h2>Hello World</h2>
-      <span>{{ settings.language }}</span>
-  </div>
+  <router-view class="weather-app"></router-view>
 </template>
 
 <script>
-import { mapState } from 'vuex'
 
 export default {
   name: 'WeatherApp',
-  computed: mapState({
-      settings: state => state.settings
-  })
 }
 
 </script>

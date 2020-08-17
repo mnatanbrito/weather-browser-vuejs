@@ -1,4 +1,4 @@
 export default {
-  EN: 'en',
-  PT_BR: 'ptBR',
+  EN_US: 'en-US',
+  PT_BR: 'pt-BR',
 };

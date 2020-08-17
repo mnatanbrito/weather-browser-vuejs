@@ -12,7 +12,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-@import '~bulma/css/bulma.min.css'
-</style>

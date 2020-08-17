@@ -1,5 +1,5 @@
 export default {
-  en: {
+  'en-US': {
     apiLimitMessage: 'You might have reached free tier limit',
     pageLabel: 'Page',
     nextPageLabel: 'Next',
