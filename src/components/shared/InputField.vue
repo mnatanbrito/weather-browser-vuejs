@@ -4,6 +4,7 @@
         :class="'inputfield control has-icons-left has-icons-right' +  isSearching"
       >
         <input
+          ref="inputField"
           class="inputfield--input input is-large"
           type="text"
           :placeholder="placeholder"
@@ -33,6 +34,9 @@ export default {
 
             this.$props.onSubmit();
         }
+    },
+    mounted() {
+      this.$refs.inputField.focus();
     }
 }
 </script>

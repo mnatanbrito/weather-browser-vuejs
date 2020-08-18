@@ -1,17 +1,24 @@
 <template>
-  <router-view class="weather-app"></router-view>
+<div class="weather-app">
+  <NotificationContainer>
+    <router-view></router-view>
+  </NotificationContainer>
+</div>
 </template>
 
 <script>
-
+import NotificationContainer from './components/notifications/NotificationContainer'
 export default {
   name: 'WeatherApp',
+  components: {
+    NotificationContainer,
+  }
 }
 
 </script>
 
 <style lang="scss">
-html, body, #root {
+html, body, #app {
     height: 100vh;
     width: 100vw;
 }

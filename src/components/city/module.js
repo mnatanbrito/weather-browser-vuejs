@@ -1,4 +1,4 @@
-import { find, reduce, each } from 'lodash/collection';
+import { find, reduce, each, map } from 'lodash/collection';
 
 import {
   SEARCH_CITY_STARTED,
@@ -7,7 +7,7 @@ import {
   SELECT_PAGE_SIZE,
   SELECT_PAGE_INDEX,
 } from './actionTypes';
-import constants from './contants';
+import constants from './constants';
 
 import { getCitiesByName } from './service';
 
@@ -26,13 +26,12 @@ const cityModule = {
   }),
   mutations: {
     [SEARCH_CITY_STARTED](state) {
-      return {
-        ...state,
-        isSearching: true,
-        hasSearched: false,
-        searchError: '',
-        searchErrorStatus: null,
-      };
+      state.isSearching = true;
+      state.hasSearched = false;
+      state.searchError = '';
+      state.searchErrorStatus = null;
+
+      return state;
     },
     [SEARCH_CITY_SUCCEEDED](state, citiesPayload) {
       const ids = [...state.allIds];
@@ -60,38 +59,33 @@ const cityModule = {
         {}
       );
 
-      return {
-        ...state,
-        allIds: ids,
-        byId: {
-          ...state.byId,
-          ...newIds,
-        },
-        isSearching: false,
-        hasSearched: true,
+      state.isSearching = false;
+      state.hasSearched = true;
+      state.allIds = ids;
+      state.byId = {
+        ...state.byId,
+        ...newIds,
       };
+
+      return state;
     },
     [SEARCH_CITY_FAILED](state, error, errorStatus) {
-      return {
-        ...state,
-        isSearching: false,
-        hasSearched: true,
-        searchError: error,
-        searchErrorStatus: errorStatus,
-      };
+      state.isSearching = false;
+      state.hasSearched = true;
+      state.searchError = error;
+      state.searchErrorStatus = errorStatus;
+
+      return state;
     },
     [SELECT_PAGE_SIZE](state, pageSize) {
-      return {
-        ...state,
-        pageSize,
-        pageIndex: 0,
-      };
+      state.pageSize = pageSize;
+
+      return state;
     },
     [SELECT_PAGE_INDEX](state, pageIndex) {
-      return {
-        ...state,
-        pageIndex,
-      };
+      state.pageIndex = pageIndex;
+
+      return state;
     },
   },
   actions: {
@@ -112,17 +106,21 @@ const cityModule = {
         });
     },
     selectPageSize({ commit, state }, pageSize) {
-      if (state.cities.pageSize !== pageSize) {
+      if (state.pageSize !== pageSize) {
         commit(SELECT_PAGE_SIZE, pageSize);
       }
     },
     selectPageIndex({ commit, state }, pageIndex) {
-      if (state.cities.pageIndex !== pageIndex) {
+      if (state.pageIndex !== pageIndex) {
         commit(SELECT_PAGE_INDEX, pageIndex);
       }
     },
   },
   getters: {
+    savedCities: function(state) {
+      const allIds = state.allIds;
+      return map(allIds, (id) => state.byId[id]);
+    },
     hasLimitError: function(state) {
       return state.searchErrorStatus && state.searchErrorStatus === 429;
     },

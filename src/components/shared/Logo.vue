@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState } from 'vuex';
 
 import locales from '../../i18n/locales'
 import usaFlag from  '../../assets/icons/usa-flag.png'
@@ -48,13 +48,6 @@ export default {
           brazilFlagPadding: state=> state.settings.language === locales.PT_BR ? 3 : 0,
       }),
   },
-  actions: {
-      ...mapActions({
-        //   changeLanguage: ({ store }, language) => {
-        //       store.commit('selectLanguage', language)
-        //   }
-      })
-  },
   methods: {
       changeToEnglish: function() {
           this.$store.dispatch('selectLanguage', locales.EN_US)
@@ -65,8 +58,3 @@ export default {
   }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="scss">
-
-</style>

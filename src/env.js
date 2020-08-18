@@ -3,5 +3,5 @@ export function isDevelopment() {
 }
 
 export function getOpenWeatherApiKey() {
-  return process.env.REACT_APP_OPEN_WEATHER_API_KEY;
+  return process.env.VUE_APP_OPEN_WEATHER_API_KEY;
 }
