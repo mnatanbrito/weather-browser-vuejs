@@ -11,7 +11,13 @@
             </div>
           </div>
           <div class="column is-12">
-            <InputField :value="searchTerm" :loading="isSearching" :placeholder="$t('citySearchInputPlaceholder')" maxLength="140" :onChange="onChange" :onSubmit="onSubmit" />
+            <InputField
+              :value="searchTerm"
+              :loading="isSearching"
+              :placeholder="$t('citySearchInputPlaceholder')"
+              maxLength="140"
+              :on-change="onChange"
+              :onSubmit="onSubmit" />
           </div>
           <div class="column is-12">
             <ResultsToggle />

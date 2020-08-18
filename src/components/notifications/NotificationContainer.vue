@@ -1,11 +1,12 @@
 <template>
     <div>
         <slot></slot>
+        <span v-if="currentNotification" />
     </div>
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
     name: 'NotificationContainer',
@@ -13,13 +14,15 @@ export default {
         ...mapActions(['hideNotification'])
     },
     computed: {
-        ...mapState({
-            notification: state => state.notifications.notification
-        })
+        ...mapGetters(['currentNotification'])
     },
-    updated: function() {
-        if(this.notification) {
-            console.log(`new notification`, this.notification);
+    beforeUpdate: function() {
+        if(this.currentNotification) {
+            this.$toast.open({
+                position: 'top-right',
+                message: this.$t(this.currentNotification.message),
+                type: this.currentNotification.notificationType,
+            });
 
             this.hideNotification();
         }

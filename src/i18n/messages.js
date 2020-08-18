@@ -17,6 +17,8 @@ export default {
     savedCityWeather: 'Weather',
     savedCityMinTemperature: 'Min. Temp',
     savedCityMaxTemperature: 'Max. Temp',
+    cityNotFound: 'City not found 🤔',
+    somethingWentWrong: 'Something went wrong 😔',
   },
   'pt-BR': {
     apiLimitMessage: 'Limite da chamadas da camada gratuita atingido',
@@ -36,5 +38,7 @@ export default {
     savedCityWeather: 'Clima',
     savedCityMinTemperature: 'Temp. Min',
     savedCityMaxTemperature: 'Temp. Max',
+    cityNotFound: 'Cidade não encontrada 🤔',
+    somethingWentWrong: 'Oops! Ocorreu algo errado 😔',
   },
 };

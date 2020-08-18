@@ -17,12 +17,15 @@ const notificationsModule = {
     },
   },
   actions: {
-    showNotification({ commit }, notificationType, message) {
-      commit(SHOW_NOTIFICATION, notificationType, message);
+    showNotification({ commit }, { notificationType, message }) {
+      commit(SHOW_NOTIFICATION, { notificationType, message });
     },
     hideNotification({ commit }) {
       commit(HIDE_NOTIFICATION);
     },
+  },
+  getters: {
+    currentNotification: (state) => state.notification,
   },
 };
 

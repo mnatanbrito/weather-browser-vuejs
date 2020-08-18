@@ -32,7 +32,9 @@ export default {
         submit: function(e) {
             e.preventDefault();
 
-            this.$props.onSubmit();
+            if(this.value && this.value.length > 0) {
+              this.$props.onSubmit();
+            }
         }
     },
     mounted() {
